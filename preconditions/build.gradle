@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile '../AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['../res']
+        }
+    }
+
+}
+    dependencies {
+        compile fileTree(include: ['*.jar'], dir: '../libs')
+        androidTestCompile fileTree(include: ['*.jar'], dir: '../libs')
+
+        androidTestCompile 'junit:junit:4.12'//remove this line and sync again... worked for me
+        androidTestCompile 'com.google.guava:guava:18.0'
+        androidTestCompile 'com.android.support:appcompat-v7:25.0.1'
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        androidTestCompile 'com.android.support:support-annotations:25.0.1'
+        androidTestCompile 'com.android.support.test:runner:0.5'
+        androidTestCompile 'com.android.support.test:rules:0.5'
+
+        compile 'junit:junit:4.12'//remove this line and sync again... worked for me
+        compile 'com.google.guava:guava:18.0'
+        compile 'com.android.support:appcompat-v7:25.0.1'
+        compile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        compile 'com.android.support:support-annotations:25.0.1'
+        compile 'com.android.support.test:runner:0.5'
+        androidTestCompile 'com.android.support.test:rules:0.5'
+    }

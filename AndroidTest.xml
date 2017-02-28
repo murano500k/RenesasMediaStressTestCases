@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration description="Config for Renesas Media Stress test cases">
+    <target_preparer class="android.mediastress.renesas.preconditions.MediaPreparer" >
+        <option name="local-media-path" value="/home/artem/renesas/cts/test" />
+        <option name="skip-media-download" value="false" />
+    </target_preparer>
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.ApkInstaller">
+        <option name="cleanup-apks" value="true" />
+        <option name="test-file-name" value="RenesasMediaStressTestCases.apk" />
+    </target_preparer>
+    <test class="com.android.tradefed.testtype.AndroidJUnitTest" >
+        <option name="package" value="android.mediastress.renesas" />
+        <option name="test-timeout" value="600000" />
+    </test>
+
+</configuration>
+
+
+<!--<configuration description="Config for CTS ICU test cases">
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.ApkInstaller">
+        <option name="cleanup-apks" value="true" />
+        <option name="test-file-name" value="CtsIcuTestCases.apk" />
+    </target_preparer>
+    <test class="com.android.tradefed.testtype.AndroidJUnitTest" >
+<option name="runner" value="com.android.cts.core.runner.CoreTestRunner" />
+<option name="package" value="android.icu.cts" />
+<option name="instrumentation-arg" key="core-root-classes"
+        value="android.icu.cts.coverage.TestAll,android.icu.dev.test.TestAll" />
+<option name="instrumentation-arg" key="core-expectations"
+        value="/android/icu/cts/expectations/icu-known-failures.txt" />
+<option name="runtime-hint" value="30m19s" />
+    </test>
+    </configuration>-->
+<!--
+<configuration description="Config for CTS Simpleperf test cases">
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true" />
+        <option name="push" value="CtsSimpleperfTestCases->/data/local/tmp/CtsSimpleperfTestCases" />
+        <option name="append-bitness" value="true" />
+    </target_preparer>
+    <test class="com.android.tradefed.testtype.GTest" >
+        <option name="native-test-device-path" value="/data/local/tmp" />
+        <option name="module-name" value="CtsSimpleperfTestCases" />
+        <option name="runtime-hint" value="1m10s" />
+    </test>
+</configuration>
+
+-->
+
+<!--
+<configuration description="Config for CTS Voice Interaction test cases">
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.ApkInstaller">
+        <option name="cleanup-apks" value="true" />
+        <option name="test-file-name" value="CtsVoiceInteractionService.apk" />
+        <option name="test-file-name" value="CtsVoiceInteractionApp.apk" />
+        <option name="test-file-name" value="CtsVoiceInteractionTestCases.apk" />
+    </target_preparer>
+
+    <target_preparer class="com.android.tradefed.targetprep.RunCommandTargetPreparer">
+        <option name="run-command" value="settings put secure voice_interaction_service android.voiceinteraction.service/.MainInteractionService" />
+    </target_preparer>
+
+    <test class="com.android.tradefed.testtype.AndroidJUnitTest" >
+        <option name="package" value="android.voiceinteraction.cts" />
+    </test>
+</configuration>
+
+-->
+
+<!--
+LOCAL_PATH:= $(call my-dir)
+16
+17# Reusable Sensor test classes and helpers
+18
+19include $(CLEAR_VARS)
+20
+21LOCAL_MODULE := cts-sensors-tests
+22
+23LOCAL_MODULE_TAGS := tests
+24
+25LOCAL_MODULE_PATH := $(TARGET_OUT_DATA_APPS)
+26
+27LOCAL_STATIC_JAVA_LIBRARIES := ctsdeviceutil
+28
+29LOCAL_JAVA_LIBRARIES := platform-test-annotations
+30
+31LOCAL_SDK_VERSION := current
+32
+33# TODO: sensors need to be refactored out into their own namespace: android.hardware.sensors.cts
+34LOCAL_SRC_FILES := $(call all-java-files-under, src/android/hardware/cts/helpers)
+35LOCAL_SRC_FILES += \
+36    src/android/hardware/cts/SensorTestCase.java \
+37    src/android/hardware/cts/SingleSensorTests.java \
+38    src/android/hardware/cts/SensorIntegrationTests.java \
+39    src/android/hardware/cts/SensorBatchingTests.java \
+40    src/android/hardware/cts/SensorTest.java \
+41    src/android/hardware/cts/SensorManagerStaticTest.java \
+42    src/android/hardware/cts/SensorAdditionalInfoTest.java
+43
+44include $(BUILD_STATIC_JAVA_LIBRARY)
+45
+46
+47# CtsHardwareTestCases package
+48
+49include $(CLEAR_VARS)
+50
+51LOCAL_MODULE_TAGS := tests
+52
+53LOCAL_MODULE_PATH := $(TARGET_OUT_DATA_APPS)
+54
+55# Tag this module as a cts test artifact
+56LOCAL_COMPATIBILITY_SUITE := cts
+57
+58LOCAL_STATIC_JAVA_LIBRARIES := \
+59    ctsdeviceutil \
+60    compatibility-device-util \
+61    ctstestrunner \
+62    mockito-target \
+63    android-ex-camera2
+64
+65LOCAL_SRC_FILES := $(call all-java-files-under, src) $(call all-renderscript-files-under, src)
+66
+67LOCAL_PACKAGE_NAME := CtsHardwareTestCases
+68
+69LOCAL_CTS_MODULE_CONFIG := $(LOCAL_PATH)/Old$(CTS_MODULE_TEST_CONFIG)
+70
+71LOCAL_SDK_VERSION := current
+72
+73LOCAL_JAVA_LIBRARIES := android.test.runner
+74
+75include $(BUILD_CTS_PACKAGE)
+-->

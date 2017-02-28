@@ -1,0 +1,6 @@
+/build
+/preconditions/build
+.idea
+.gradle
+*.iml
+
