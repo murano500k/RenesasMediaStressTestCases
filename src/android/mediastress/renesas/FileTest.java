@@ -96,7 +96,7 @@ public class FileTest extends BaseTest {
 		return runSingleCmd(cmd,false);
 	}
 
-	public boolean runSingleCmd(String cmd, boolean verbose) {
+	public boolean runSingleCmd(final String cmd, final boolean verbose) {
 		inst.runOnMainSync(new Runnable() {
 			                   @Override
 			                   public void run() {

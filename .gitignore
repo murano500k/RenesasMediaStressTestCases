@@ -3,4 +3,10 @@
 .idea
 .gradle
 *.iml
-
+local.properties
+hs_err_pid25884.log
+gradlew
+gradlew.bat
+gradle
+RenesasMediaStressTestCases.iml
+app/
